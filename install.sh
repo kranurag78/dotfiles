@@ -1,8 +1,7 @@
 curl -sLS https://get.arkade.dev | sudo sh
 echo "export PATH=$PATH:$HOME/.arkade/bin" >> ~/.bashrc
 source ~/.bashrc
-export PATH=$PATH:$HOME/.arkade/bin
-arkade get kind 
-arkade get kubectl 
-kind create cluster 
-alias k=kubectl
+arkade get kubectl
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+echo 'alias k=kubectl' >>~/.bashrc
+echo 'complete -o default -F __start_kubectl k' >>~/.bashrc
